@@ -1,0 +1,4 @@
+zn "INSURLIGENT"
+do $SYSTEM.OBJ.Load("/opt/insurligent/setup/Setup.cls","ck")
+do ##class(Insurligent.Setup).Run()
+halt

@@ -1,0 +1,41 @@
+services:
+  iris:
+    build: .
+    image: training2-d1-lab-iris:latest
+    hostname: iris
+    # A hard kill leaves the write image journal dirty.
+    stop_grace_period: 60s
+    # Bound to 127.0.0.1: the login is public, so keep IRIS off the network.
+    ports:
+      # Web server: Management Portal, REST APIs, VS Code ObjectScript
+      - "127.0.0.1:52773:52773"
+      # Superserver: DB-API / JDBC / ODBC clients
+      - "127.0.0.1:9091:1972"
+    volumes:
+      # Durable %SYS: keeps the namespace and your work across restarts.
+      - ./data/durable:/dur
+    environment:
+      - ISC_DATA_DIRECTORY=/dur/iris_conf.d
+      # Makes the INSURLIGENT database and namespace. Applied at every start.
+      - ISC_CPF_MERGE_FILE=/opt/insurligent/merge.cpf
+    # Runs AFTER IRIS is live. The first start loads the classes in src/.
+    # Later starts find the sentinel and do nothing.
+    command: ["-a", "/opt/insurligent/setup/after-start.sh"]
+
+  # Test hospital system (HIS), not a real system: answers HL7 V2.5.1 queries such as PAT-01, over MLLP.
+  mock_his:
+    image: python:3.12-slim
+    volumes:
+      - ./mock_his:/app:ro
+    command: ["python", "-u", "/app/his.py"]
+    ports:
+      - "127.0.0.1:2575:2575"
+
+  # Test private insurer, not a real system: answers REST calls such as Getinsurer, with JSON.
+  mock_insurer:
+    image: python:3.12-slim
+    volumes:
+      - ./mock_insurer:/app:ro
+    command: ["python", "-u", "/app/insurer.py"]
+    ports:
+      - "127.0.0.1:8080:8080"

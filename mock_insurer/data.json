@@ -1,0 +1,53 @@
+{
+  "companies": {
+    "AIA": "American International Assurance Co., Ltd",
+    "DEMO": "Demo Life Insurance Co., Ltd"
+  },
+  "insured": [
+    {"company_code": "AIA", "insurer_id": "INS123456", "citizen_id": "3125800558898", "passport_id": "",
+     "title": "Mr.", "firstname": "Somchai", "lastname": "Jaidee", "gender": "male", "age": 36},
+    {"company_code": "DEMO", "insurer_id": "DEM000777", "citizen_id": "", "passport_id": "AB1234567",
+     "title": "Ms.", "firstname": "Emma", "lastname": "Clark", "gender": "female", "age": 40}
+  ],
+  "policies": [
+    {"company_code": "AIA", "insurer_id": "INS123456", "policy_id": "POL000001", "plan_code": "AIA001",
+     "plan_name": "AIA Health Gold", "policy_number": "AIA-TH-998821", "policy_type": "Health",
+     "policy_status": "active", "effective_date": "2026-05-15 00:00:00", "expiry_date": "2027-05-15 00:00:00"},
+    {"company_code": "AIA", "insurer_id": "INS123456", "policy_id": "POL000002", "plan_code": "AIA007",
+     "plan_name": "AIA CI Care", "policy_number": "AIA-TH-998822", "policy_type": "Critical Illness",
+     "policy_status": "active", "effective_date": "2025-01-01 00:00:00", "expiry_date": "2035-01-01 00:00:00"},
+    {"company_code": "DEMO", "insurer_id": "DEM000777", "policy_id": "DPOL0001", "plan_code": "DEMO-HS",
+     "plan_name": "Demo Health Silver", "policy_number": "DEMO-PL-0001", "policy_type": "Health",
+     "policy_status": "active", "effective_date": "2026-01-01 00:00:00", "expiry_date": "2026-12-31 23:59:59"}
+  ],
+  "benefits": {
+    "AIA-TH-998821": [
+      {"benefit_code": "IPD", "benefit_name": "Inpatient", "benefit_status": "available",
+       "maximum_amount": 1000000.00, "remaining_amount": 45000.00,
+       "coverage_items": [
+         {"coverage_item": "1.1", "coverage_code": "ROOM", "coverage_name": "Room & Board", "coverage_type": "PerDay",
+          "limit_amount": "5000", "limit_unit": "THB", "remark": "ต่อวัน"},
+         {"coverage_item": "1.2", "coverage_code": "SUR001", "coverage_name": "Major Surgery", "coverage_type": "PerCase",
+          "limit_amount": "200000", "limit_unit": "THB", "remark": "Pre-authorization required"}
+       ]},
+      {"benefit_code": "ICU", "benefit_name": "Intensive Care", "benefit_status": "exhausted",
+       "maximum_amount": 300000.00, "remaining_amount": 0.00,
+       "coverage_items": [
+         {"coverage_item": "2.1", "coverage_code": "ICU001", "coverage_name": "ICU Room", "coverage_type": "PerDay",
+          "limit_amount": "15000", "limit_unit": "THB", "remark": "Maximum 20 days"}
+       ]}
+    ],
+    "AIA-TH-998822": [
+      {"benefit_code": "CI", "benefit_name": "Critical Illness Lump Sum", "benefit_status": "available",
+       "maximum_amount": 500000.00, "remaining_amount": 500000.00, "coverage_items": []}
+    ],
+    "DEMO-PL-0001": [
+      {"benefit_code": "IPD", "benefit_name": "Inpatient", "benefit_status": "available",
+       "maximum_amount": 400000.00, "remaining_amount": 380000.00,
+       "coverage_items": [
+         {"coverage_item": "1.1", "coverage_code": "ROOM", "coverage_name": "Room & Board", "coverage_type": "PerDay",
+          "limit_amount": "3500", "limit_unit": "THB", "remark": "ต่อวัน"}
+       ]}
+    ]
+  }
+}

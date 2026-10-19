@@ -1,0 +1,9 @@
+{
+  "intersystems.servers": {
+    "insurligent": {
+      "webServer": { "host": "localhost", "port": 52773 },
+      "username": "_SYSTEM"
+    }
+  },
+  "objectscript.conn": { "server": "insurligent", "ns": "INSURLIGENT", "active": true }
+}

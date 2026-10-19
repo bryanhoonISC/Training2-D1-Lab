@@ -1,0 +1,5 @@
+[Actions]
+CreateDatabase:Name=INSURLIGENT,Directory=/dur/iris_conf.d/mgr/INSURLIGENT
+CreateNamespace:Name=INSURLIGENT,Globals=INSURLIGENT,Routines=INSURLIGENT,Interop=1
+ModifyUser:Name=_SYSTEM,ChangePassword=0,PasswordNeverExpires=1
+ModifyUser:Name=SuperUser,ChangePassword=0,PasswordNeverExpires=1

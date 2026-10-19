@@ -1,0 +1,2 @@
+# Docker makes this directory as root if it does not exist.
+# Keeping it here lets the IRIS user (uid 51773) write to the durable volume.

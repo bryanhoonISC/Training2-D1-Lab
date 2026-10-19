@@ -1,0 +1,61 @@
+{
+  "hospital_code": "RAMA9",
+  "patients": {
+    "HN00012345": {
+      "citizen_id": "3125800558898", "passport_id": "",
+      "family": "Jaidee", "given": "Somchai", "prefix": "Mr.",
+      "birth_date": "1990-05-15", "gender": "M",
+      "address": {"street": "Bangkok", "country": "TH"},
+      "phone": "081-234-5678"
+    },
+    "HN00067890": {
+      "citizen_id": "", "passport_id": "AB1234567",
+      "family": "Clark", "given": "Emma", "prefix": "Ms.",
+      "birth_date": "1985-11-02", "gender": "F",
+      "address": {"street": "55 Sukhumvit Road", "city": "Bangkok", "country": "TH"},
+      "phone": "089-765-4321"
+    }
+  },
+  "visits": {
+    "VN-2569-100245": {
+      "hn": "HN00012345", "visit_date": "20260731000000", "visit_type": "IPD",
+      "department_code": "MED", "department_name": "Internal Medicine",
+      "chief_complaint": "Fever",
+      "procedures": [{"code": "PROC001", "name": "Appendectomy", "system": "99HIS"}],
+      "physician": {"id": "S12345", "family": "Saksom", "given": "Somsak", "prefix": "Mr.", "license": "12345"}
+    },
+    "VN-2569-100300": {
+      "hn": "HN00067890", "visit_date": "20261012083000", "visit_type": "IPD",
+      "department_code": "SUR", "department_name": "General Surgery",
+      "chief_complaint": "Right lower abdominal pain",
+      "procedures": [
+        {"code": "PROC002", "name": "Laparoscopic appendectomy", "system": "99HIS"},
+        {"code": "PROC003", "name": "Abdominal ultrasound", "system": "99HIS"}
+      ],
+      "physician": {"id": "S67890", "family": "Wongsa", "given": "Anan", "prefix": "Dr.", "license": "67890"}
+    }
+  },
+  "admissions": {
+    "AN00012345": {
+      "vn": "VN-2569-100245", "ward": "WARD01", "room": "", "bed": "A01",
+      "admit_date": "20260731090000", "discharge_date": "",
+      "ward_type": "Medical Ward", "room_type": "สามัญ ห้องรวม",
+      "expected_discharge": "20260804120000"
+    },
+    "AN00067890": {
+      "vn": "VN-2569-100300", "ward": "WARD05", "room": "R512", "bed": "B02",
+      "admit_date": "20261012100000", "discharge_date": "",
+      "ward_type": "Surgical Ward", "room_type": "ห้องพิเศษ",
+      "expected_discharge": "20261015120000"
+    }
+  },
+  "diagnoses": {
+    "VN-2569-100245": [
+      {"code": "E11", "name": "Type 2 diabetes mellitus", "system": "I10C", "method": "ICD10CM", "type": "A", "priority": "1"}
+    ],
+    "VN-2569-100300": [
+      {"code": "K35.8", "name": "Acute appendicitis, other and unspecified", "system": "I10C", "method": "ICD10CM", "type": "A", "priority": "1"},
+      {"code": "I10", "name": "Essential (primary) hypertension", "system": "I10C", "method": "ICD10CM", "type": "A", "priority": "2"}
+    ]
+  }
+}
