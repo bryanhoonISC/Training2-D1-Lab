@@ -58,5 +58,6 @@ Inside Docker, IRIS connects to `mock_his:2575`, `his-sftp:22` and `mock_insurer
 | `merge.cpf` | Makes the `INSURLIGENT` database and namespace, with interoperability enabled. |
 | `mock_his/`, `mock_insurer/` | The two test systems and their data. |
 | `solution/src/` | The finished classes. Use them only to check your work. IRIS does not load them. |
+| `http/` | The requests of the end-to-end test (Part F), for the REST Client extension of VS Code. |
 | `docs/` | The worksheet, the handout and the overview diagram. |
 | `data/durable/` | IRIS data (not in git). It keeps the namespace and your work across restarts. |

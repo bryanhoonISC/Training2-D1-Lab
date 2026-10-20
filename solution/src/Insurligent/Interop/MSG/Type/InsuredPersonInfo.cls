@@ -1,6 +1,6 @@
 /// The "insured_person" object of the Getinsurer reply. A serial object is stored
 /// inside the message that contains it.
-Class Insurligent.Interop.MSG.Type.InsuredPersonInfo Extends (%SerialObject, %JSON.Adaptor)
+Class Insurligent.Interop.MSG.Type.InsuredPersonInfo Extends (%SerialObject, %XML.Adaptor, %JSON.Adaptor)
 {
 
 Property InsurerId As %String(%JSONFIELDNAME = "insurer_id");

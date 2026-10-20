@@ -1,0 +1,50 @@
+# Part F5 of the lab: the end-to-end test of POST /api/insurligent/preauth/info.
+# Open this file in VS Code with the REST Client extension (humao.rest-client).
+# Click "Send Request" above a request. The reply opens on the right.
+
+@baseUrl = http://localhost:52773/api/insurligent
+@user = _SYSTEM
+@password = SYS
+
+### 1. A known patient: HTTP 200, with the patient and the insurer
+POST {{baseUrl}}/preauth/info
+Authorization: Basic {{user}}:{{password}}
+Content-Type: application/json
+
+{
+  "search_type": "CID",
+  "identity_no": "3-1258-00558-89-8",
+  "hospital_code": "RAMA9"
+}
+
+### 2. A passport search: HTTP 400, because search_type must be CID
+POST {{baseUrl}}/preauth/info
+Authorization: Basic {{user}}:{{password}}
+Content-Type: application/json
+
+{
+  "search_type": "PID",
+  "identity_no": "3-1258-00558-89-8",
+  "hospital_code": "RAMA9"
+}
+
+### 3. A missing field: HTTP 400, because identity_no is required
+POST {{baseUrl}}/preauth/info
+Authorization: Basic {{user}}:{{password}}
+Content-Type: application/json
+
+{
+  "search_type": "CID",
+  "hospital_code": "RAMA9"
+}
+
+### 4. An unknown patient: HTTP 200, with "response_code":"404" in the body
+POST {{baseUrl}}/preauth/info
+Authorization: Basic {{user}}:{{password}}
+Content-Type: application/json
+
+{
+  "search_type": "CID",
+  "identity_no": "9999999999999",
+  "hospital_code": "RAMA9"
+}
