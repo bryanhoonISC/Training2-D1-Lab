@@ -1,6 +1,6 @@
 data/durable/*
 !data/durable/.gitkeep
-# The reference documents that the handouts copy their look from.
-docs/reference/
 .DS_Store
 __pycache__/
+# Lock files of Word.
+~$*

@@ -8,6 +8,9 @@ Include %occStatus
 ///
 /// Run() loads the classes in src/ once. At the start of the lab, src/ has only
 /// empty package folders. The ^Insurligent.Setup sentinel makes a restart a no-op.
+///
+/// Interop=1 in merge.cpf also makes INSURLIGENTPKG.FoundationProduction. Run()
+/// deletes it, because the students make Insurligent.Interop.Production.
 Class Insurligent.Setup
 {
 
@@ -20,6 +23,9 @@ ClassMethod Run() As %Status
 		Write "[insurligent-setup] already set up on ", ^Insurligent.Setup, " -- nothing to do.", !
 		Return $$$OK
 	}
+	Write "[insurligent-setup] deleting the Foundation production ...", !
+	Do $SYSTEM.OBJ.Delete("INSURLIGENTPKG.FoundationProduction", "-d")
+	Kill ^Ens.Configuration("csp", "LastProduction")
 	Write "[insurligent-setup] loading the classes in src/ ...", !
 	Set tSC = $SYSTEM.OBJ.LoadDir(..#SRCDIR, "ck", , 1)
 	If $$$ISERR(tSC) {

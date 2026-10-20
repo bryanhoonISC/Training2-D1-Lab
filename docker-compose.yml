@@ -23,11 +23,17 @@ services:
     command: ["-a", "/opt/insurligent/setup/after-start.sh"]
 
   # Test hospital system (HIS), not a real system: answers HL7 V2.5.1 queries such as PAT-01, over MLLP.
+  # It also has an SFTP server (port 22, inside Docker only) with test files for Part G.
   mock_his:
-    image: python:3.12-slim
+    build: ./mock_his
+    image: training2-d1-lab-mock_his:latest
     volumes:
       - ./mock_his:/app:ro
-    command: ["python", "-u", "/app/his.py"]
+    command: ["sh", "/app/start.sh"]
+    # The SSH client of IRIS refuses "_" in a host name, so SFTP uses this name.
+    networks:
+      default:
+        aliases: [his-sftp]
     ports:
       - "127.0.0.1:2575:2575"
 
