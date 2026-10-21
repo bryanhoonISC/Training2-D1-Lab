@@ -8,7 +8,7 @@
 #
 # No IRIS commands run at build time. The CPF merge makes the namespace (before
 # the superserver opens). The -a hook loads the classes (after IRIS is live).
-FROM containers.intersystems.com/intersystems/irishealth-community:latest-em@sha256:c4d31e2388a7e29762fcd7d9f416ef16a89203481152beabeb740c5a9dafc2c0
+FROM containers.intersystems.com/intersystems/irishealth-community:latest-em
 
 USER root
 
